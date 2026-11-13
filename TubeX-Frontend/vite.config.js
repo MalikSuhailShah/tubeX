@@ -1,0 +1,17 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  server: {
+    port: 5173,
+    // /api calls are forwarded to your Express backend running on port 9000.
+    proxy: {
+      "/api": {
+        target: "http://localhost:9000",
+        changeOrigin: true,
+      },
+    },
+  },
+});

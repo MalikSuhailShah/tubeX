@@ -1,0 +1,2 @@
+wrap database connection in try and catch
+and use async and await
